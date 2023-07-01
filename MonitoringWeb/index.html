@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <script>
+    function replace( hide, show ) {
+      document.getElementById(hide).style.display="none";
+      document.getElementById(show).style.display="block";
+    }
+   </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="static/style.css" />
+    <title>Monitoring Electrical</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center;">
+      <h1>Monitoring Electric</h1>
+    </div>
+    <div class="relative">
+      <div class="grid absolute">
+        <!-- image -->
+        <div>
+          <div class="relative-img-lt1", id="relative-img-lt1"> 
+            <img src="static/Lantai_1.jpg" alt="lantai1" width="512px" id="denahLantai"/>
+            <div class="absolute-img-lt101">
+              <img id="satu-nol-satu" src="static/pic_bulboff.gif" alt="lampoff" width="16px" style="position: absolute"/>
+            </div>
+            <div class="absolute-img-lt102">
+              <img id="satu-nol-dua" src="static/pic_bulboff.gif" alt="lampoff" width="16px" style="position: absolute"/>
+            </div>
+          </div>
+
+          <div class="relative-img-lt2" id="relative-img-lt2" style="display: none;">
+            <img src="static/Lantai_2.jpg" alt="lantai1" width="512px" id="denahLantai"/>
+            <div class="absolute-img-lt201">
+              <img id="dua-nol-satu" src="static/pic_bulboff.gif" alt="lampoff" width="16px" style="position: absolute"/>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- button -->
+        <div class="btn-container">
+          <div>
+            <button class="btn mb-2" onclick="replace('relative-img-lt2', 'relative-img-lt1')">Lantai 1</button>
+            <button class="btn" onclick="replace('relative-img-lt1', 'relative-img-lt2')">Lantai 2</button>
+          </div>
+          <form method="post" onsubmit="event.preventDefault()">
+          <button id='record' name='record' type="submit" class="btn" style="border-radius: 15px;">Record</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <h1 style="white-space: pre-line;" id="progress" >{{progress}}</h1>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.2.0/socket.io.js"></script>
+    <script src="static/test.js"></script> 
+  </body>
+</html>
